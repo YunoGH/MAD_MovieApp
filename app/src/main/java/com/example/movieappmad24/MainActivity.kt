@@ -20,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.movieappmad24.models.Movie
@@ -39,13 +38,41 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // Alternatively use -> @Preview (no need to emulate the device)
+                    // Alternatively use -> @Preview (no need to emulate a device)
                     MovieScreenContent()
                 }
             }
         }
     }
 }
+
+
+// Icons stored separately for easier readability (if more are added later on)
+@Composable
+fun HomeIcon() {
+    Icon(
+        imageVector = Icons.Default.Home,
+        contentDescription = "Home Button/Icon"
+    )
+}
+
+@Composable
+fun StarIcon() {
+    Icon(
+        imageVector = Icons.Default.Star,
+        contentDescription = "Watchlist Button/Icon"
+    )
+}
+
+@Composable
+fun FavoriteIcon() {
+    Icon(
+        tint = MaterialTheme.colorScheme.tertiary,
+        imageVector = Icons.Default.FavoriteBorder,
+        contentDescription = "Favourite Watchlist Button/Icon"
+    )
+}
+
 
 // Adds scaffold -> used for setting up typical app layout with a top app bar and a bottom navigation bar as well as the main content area
 @Composable
@@ -65,14 +92,15 @@ fun MovieScreenContent() {
     }
 }
 
-// @OptIn(ExperimentalMaterial3Api::class) is an experimental feature (might change or be removed in the future)
+// @OptIn(ExperimentalMaterial3Api::class) is an experimental feature -> (might change or be removed in the future)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppTopBar(title: String?) {
     CenterAlignedTopAppBar(
         title = {
             Text(
-                "MovieApp",
+                // overwrites scaffold -> alt. remove text here and pass it through the function
+                "Movie App MAD",
                 color = Color.White // Change color here or alt. dynamically
             )
         },
@@ -85,7 +113,6 @@ fun AppTopBar(title: String?) {
 }
 
 
-//
 @Composable
 fun MovieRowContent(movie: Movie) {
     // State to control the visibility of additional movie details
@@ -101,14 +128,16 @@ fun MovieRowContent(movie: Movie) {
             Box(
                 modifier = Modifier
                     .height(160.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .fillMaxSize(),
                 contentAlignment = Alignment.TopCenter
             ) {
-                MovieImageContent(movie.images[1], "image of " + movie.title)
+                // changes images displayed based off of Movie.kt
+                MovieImageContent(movie.images[2], "image of " + movie.title)
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(12.dp),
+                        .padding(13.dp),
                     contentAlignment = Alignment.TopEnd
                 ) {
                     FavoriteIcon()
@@ -171,12 +200,12 @@ fun MovieImageContent(source: String, description: String?) {
         modifier = Modifier.fillMaxSize(),
         model = source,
         contentDescription = description ?: "MovieImage Desc.",
-        placeholder = painterResource(id = R.drawable.movie_image),
+        //placeholder = painterResource(id = R.drawable.movie_image),
         contentScale = ContentScale.Crop
     )
 }
 
-// Adds the title of the movie as well as the arrow w/o functionality
+// Adds the title of the movie as well as the arrow w/o "functionality"
 @Composable
 fun MovieTitleAndArrow(title: String, showDetails: Boolean, onClick: () -> Unit) {
     Row(
@@ -218,31 +247,6 @@ fun BottomNavigationBar() {
     }
 }
 
-// Icons stored separately for easier readability (if more are added later on)
-@Composable
-fun HomeIcon() {
-    Icon(
-        imageVector = Icons.Default.Home,
-        contentDescription = "Home Button/Icon"
-    )
-}
-
-@Composable
-fun StarIcon() {
-    Icon(
-        imageVector = Icons.Default.Star,
-        contentDescription = "Watchlist Button/Icon"
-    )
-}
-
-@Composable
-fun FavoriteIcon() {
-    Icon(
-        tint = MaterialTheme.colorScheme.tertiary,
-        imageVector = Icons.Default.FavoriteBorder,
-        contentDescription = "Favourite Watchlist Button/Icon"
-    )
-}
 
 // Doesn't emulate device on use
 //@Preview(showBackground = true)
