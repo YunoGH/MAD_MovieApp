@@ -6,9 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.movieappmad24.screens.InfoScreen
-import com.example.movieappmad24.screens.HomeScreen
-import com.example.movieappmad24.screens.WatchlistScreen
+import com.example.movieappmad24.screentype.InfoScreen
+import com.example.movieappmad24.screentype.HomeScreen
+import com.example.movieappmad24.screentype.WatchlistScreen
 
 
 // composable function for defining navigation within the application
@@ -16,6 +16,7 @@ import com.example.movieappmad24.screens.WatchlistScreen
 fun Navigation() {
     val navController = rememberNavController()
 
+    // used for hosting navigation within a compose UI
     NavHost(
         navController = navController,
         startDestination = Route.Home.route

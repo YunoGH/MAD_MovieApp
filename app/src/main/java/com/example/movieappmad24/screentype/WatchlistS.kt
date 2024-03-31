@@ -1,4 +1,4 @@
-package com.example.movieappmad24.screens
+package com.example.movieappmad24.screentype
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,6 +29,8 @@ import com.example.movieappmad24.models.getMovies
 import com.example.movieappmad24.navigation.Route
 import com.example.movieappmad24.ui.theme.Blue80
 
+
+// sets up the layout structure for the screen displaying the user's watchlist
 @Composable
 fun WatchlistScreen(navController: NavController) {
     Scaffold(

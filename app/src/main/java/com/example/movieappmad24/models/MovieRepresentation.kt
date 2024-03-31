@@ -34,7 +34,7 @@ import coil.compose.AsyncImage
 import com.example.movieappmad24.R
 import com.example.movieappmad24.navigation.Route
 
-// mostly unchanged from previous exercise
+// mostly unchanged from previous exercise 02
 
 @Composable
 fun MovieList(movies: List<Movie> = getMovies(), navController: NavController) {
@@ -46,6 +46,7 @@ fun MovieList(movies: List<Movie> = getMovies(), navController: NavController) {
         }
     }
 }
+
 
 @Composable
 fun MovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
@@ -77,7 +78,7 @@ fun MovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
                     Icon(
                         tint = MaterialTheme.colorScheme.secondary,
                         imageVector = Icons.Default.FavoriteBorder,
-                        contentDescription = "Add to favorites"
+                        contentDescription = "add favorites"
                     )
                 }
             }
@@ -106,7 +107,8 @@ fun MovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
     }
 }
 
-// taken from previous exercise
+
+// -> previous exercise
 @Composable
 fun HttpImageOfMovie(httpSource: String, description: String?) {
     AsyncImage(
@@ -132,15 +134,17 @@ fun MovieInfo(movie: Movie) {
 }
 
 @Composable
-fun FurtherImages(movie: Movie) {
+fun AdditionalImages(movie: Movie) {
     LazyRow(
         modifier = Modifier
             .height(310.dp)
     ) {
         items(movie.images) { image ->
-            Box(modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .clip(RoundedCornerShape(12.dp))) {
+            Box(
+                modifier = Modifier
+                    .padding(horizontal = 12.dp)
+                    .clip(RoundedCornerShape(12.dp))
+            ) {
                 HttpImageOfMovie(
                     image, "image: " + movie.title
                 )

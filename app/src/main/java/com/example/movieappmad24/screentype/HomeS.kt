@@ -1,4 +1,4 @@
-package com.example.movieappmad24.screens
+package com.example.movieappmad24.screentype
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,6 +29,8 @@ import com.example.movieappmad24.models.getMovies
 import com.example.movieappmad24.navigation.Route
 import com.example.movieappmad24.ui.theme.Blueish80
 
+
+// sets up the layout structure for the main screen of the movie app
 @Composable
 fun HomeScreen(navController: NavController) {
     Scaffold(
@@ -65,6 +67,7 @@ fun HomeTopBar(text: String?) {
     )
 }
 
+// creates a bottom navigation bar for a mobile app's home screen. It consists of two tabs: "Home" and "Watchlist"
 @Composable
 fun HomeBottomBar(watchlistSelected: Boolean, navController: NavController) {
     BottomAppBar(

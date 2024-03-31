@@ -4,7 +4,7 @@ package com.example.movieappmad24.navigation
 // in this case representing routes in the application
 sealed class Route(val route: String) {
 
-    data object Info : Route("detailscreen/{movieId}")
+    data object Info : Route("infoscreen/{movieId}")
 
     data object Home : Route("home")
 

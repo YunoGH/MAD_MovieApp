@@ -1,6 +1,5 @@
-package com.example.movieappmad24.screens
+package com.example.movieappmad24.screentype
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,13 +15,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.movieappmad24.models.FurtherImages
+import com.example.movieappmad24.models.AdditionalImages
 import com.example.movieappmad24.models.Movie
 import com.example.movieappmad24.models.MovieRow
 import com.example.movieappmad24.models.getMovies
-import com.example.movieappmad24.ui.theme.Blue80
 import com.example.movieappmad24.ui.theme.Blueishy80
 
 // screen for displaying additional information about a movie
@@ -42,7 +39,7 @@ fun InfoScreen(movieId: String?, navController: NavController) {
         ) {
             movie?.let {
                 MovieRow(movie)
-                FurtherImages(movie)
+                AdditionalImages(movie)
             }
         }
     }
