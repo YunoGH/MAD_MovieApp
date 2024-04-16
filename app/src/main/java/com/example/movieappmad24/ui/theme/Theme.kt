@@ -1,5 +1,11 @@
 package com.example.movieappmad24.ui.theme
 
+import Pink40
+import Pink80
+import Purple40
+import Purple80
+import PurpleGrey40
+import PurpleGrey80
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -16,17 +22,27 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Blue80,
-    secondary = Blueish80,
-    tertiary = Blueishy80
+    primary = Purple80,
+    secondary = PurpleGrey80,
+    tertiary = Pink80
 )
+
 
 private val LightColorScheme = lightColorScheme(
-    primary = Blue80,
-    secondary = Blueish80,
-    tertiary = Blueishy80
-)
+    primary = Purple40,
+    secondary = PurpleGrey40,
+    tertiary = Pink40
 
+    /* Other default colors to override
+    background = Color(0xFFFFFBFE),
+    surface = Color(0xFFFFFBFE),
+    onPrimary = Color.White,
+    onSecondary = Color.White,
+    onTertiary = Color.White,
+    onBackground = Color(0xFF1C1B1F),
+    onSurface = Color(0xFF1C1B1F),
+    */
+)
 
 @Composable
 fun MovieAppMAD24Theme(
